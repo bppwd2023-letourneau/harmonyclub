@@ -1,6 +1,23 @@
 <div class="row">
-    <div class="logo p-5 text-center">
+    <div class="col-8">
+    <div class="logo p-5">
     <%=image_tag("logo.png")%>
+    </div>
+    </div>
+
+    <div class="col-4 p-5 text-center fw-bold">
+
+    <h3 class="text-center"> Events This Month </h3>
+    <hr>
+
+    <% @events.each do |e| %>
+        <% if e.eventstart > DateTime.now && e.eventstart < DateTime.now + 30.days %>
+            <%= e.title%>
+            <%= e.eventstart.strftime('- %b %d, %Y - %I:%M %p') %>
+        <% end %>
+    <% end %>
+
+
     </div>
 </div>
 

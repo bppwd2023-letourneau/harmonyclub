@@ -26,17 +26,48 @@
         <%= link_to"HARMONY CLUB OF WORCESTER", home_home_path, class:"btn fs-2 fw-bold text-light p-3" %>
       </li>
 
+      <% if current_user %>
+      <li class="nav-item d-flex font-weight-bold rounded text-light p-4">
+        <%= link_to"Admin Panel", admin_panel_path, class:"btn btn-secondary" %>
+      </li>
+      <% end %>
+
       </ul>
 
       <li class="nav-item dropdown d-flex font-weight-bold rounded text-light p-3 ">
           <a class="nav-link dropdown-toggle col p-2 rounded" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="background-color: #00075e;">
             Menu
           </a>
-          <ul class="dropdown-menu text-center">
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-            <li><a class="dropdown-item" href="#">
+
+            <% if Section.all != nil %>
+              <% Section.all.each do |s| %>
+                <% if s.location == "Main Navigation" && s.visible == true %>
+                  <ul class="dropdown-menu text-center">
+                  <li>
+                      <a class="dropdown-item" href="#">
+                      <%=s.title %> &raquo;
+                      </a>
+                      <ul class="dropdown-menu dropdown-submenu">
+
+                  <% if Page.all != nil %>
+                    <% Page.all.each do |p| %>
+                      <% if p.section_id == s.id %>
+                        <li>
+                          <a class="dropdown-item" href="#"><%= p.title %></a>
+                        </li>
+                      <% end %>
+                    <% end %>
+                  <% end %>
+                  </ul>
+                  </li>
+                <% end %>
+              <% end %>
+            <% end %>
+
+            <a class=dropdown-item" href="#"> <%= link_to "Calendar", web_events_calendar_path, class: "btn w-100" %> </a>
+
+            
+  
               <% if current_user %>
             <%= link_to "Sign Out", destroy_user_session_path, data: { turbo_method: :delete }, class: "nav-link" %>
               <% else %>
@@ -46,8 +77,15 @@
           </ul>
       </li>
 
+
+      
+
     </div>
+
+    
   </div>
+
+  
 </nav>
 
 <div class="bruh">
@@ -60,6 +98,18 @@
 
     <div class="container text-center">
         <%= link_to"HARMONY CLUB OF WORCESTER | 2023", home_home_path, class:"btn fw-bold text-light mb-0" %>
+    </div>
+
+    <div class="row">
+
+      <% if Section.all != nil %>
+        <% Section.all.each do |s| %>
+          <% if s.location == "Footer" %>
+            <li><a class="dropdown-item" href="#"><%= s.title %></a></li>
+          <% end %>
+        <% end %>
+      <% end %>
+
     </div>
   
   </div>

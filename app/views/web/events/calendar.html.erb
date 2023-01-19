@@ -1,0 +1,12 @@
+<div class="text-center">
+<%= month_calendar(events: @events) do |date, events| %>
+  <%= date.strftime('%b %d, %Y') %>
+
+  <% events.each do |e| %>
+    <div>
+      <h5 class="fw-bold"> <%= e.title %> </h5>
+      <%= link_to "Show this event", e, class:"btn btn-primary" %>
+    </div>
+  <% end %>
+<% end %>
+</div>

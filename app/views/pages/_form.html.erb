@@ -18,7 +18,7 @@
 
   <div>
     <%= form.label :section_id, style: "display: block" %>
-    <%= form.number_field :section_id %>
+    <%= form.collection_select :section_id, @sections, :id, :title, prompt: "Select Section" %>
   </div>
 
   <div>

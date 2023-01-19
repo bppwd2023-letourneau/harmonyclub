@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  namespace :web do
+    get 'events/calendar'
+  end
+  get 'admin/panel'
   resources :sponsors
   resources :photos
   resources :albums

@@ -8,6 +8,8 @@ gem "rails", "~> 7.0.4"
 
 gem "devise", "~> 4.8"
 
+gem "simple_calendar", "~> 2.4"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
