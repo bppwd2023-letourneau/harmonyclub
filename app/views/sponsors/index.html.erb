@@ -1,11 +1,12 @@
-<h1>Sponsors</h1>
 
-<div id="sponsors">
+<h1 class="text-center p-3">Sponsors</h1>
+
+<div class="row">
   <% @sponsors.each do |sponsor| %>
 
-    <div class="col-lg-4">
-      <div class="card text-center" style="width: 18rem;">
-        <%= image_tag(sponsor.image) %>
+    <div class="col-lg-4 d-flex justify-content-center">
+      <div class="card text-center mb-3" style="width: 18rem; height: 20rem;">
+        <%= image_tag(sponsor.image, size: "285x200") %>
         <div class="card-body">
           <h5 class="card-title"><%= sponsor.title %></h5>
           <%= link_to"Visit Site", sponsor.website, class: "btn btn-primary" %>
@@ -16,8 +17,6 @@
         </div>
       </div>
       </div>
-    <p>
-    </p>
   <% end %>
   </div>
   </div>

@@ -1,16 +1,19 @@
-<h1>Sections</h1>
+<h1 class="text-center p-3">Sections</h1>
 
 <div class="row">
+<div class="row">
 
+
+  <div id="sections">
   <% @sections.each do |section| %>
 
     <div class="col-4">
       <%= render section %>
-      <p>
         <%= link_to "Show this section", section %>
-      </p>
     </div>
 
   <% end %>
+  </div>
 
+</div>
 </div>

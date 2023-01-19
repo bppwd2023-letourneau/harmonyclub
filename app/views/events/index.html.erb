@@ -1,11 +1,11 @@
 
-<h1>Events</h1>
+<h1 class="text-center p-3">Events</h1>
 
 <div id="events">
   <% @events.each do |event| %>
     <%= render event %>
     <p>
-      <%= link_to "Show this event", event, class:"btn btn-primary" %>
+      <%= link_to "Show this event", event, class:"btn btn-primary mb-3" %>
     </p>
   <% end %>
 </div>
