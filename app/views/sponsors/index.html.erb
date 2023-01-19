@@ -1,14 +1,24 @@
-<p style="color: green"><%= notice %></p>
-
 <h1>Sponsors</h1>
 
 <div id="sponsors">
   <% @sponsors.each do |sponsor| %>
-    <%= render sponsor %>
+
+    <div class="col-lg-4">
+      <div class="card text-center" style="width: 18rem;">
+        <%= image_tag(sponsor.image) %>
+        <div class="card-body">
+          <h5 class="card-title"><%= sponsor.title %></h5>
+          <%= link_to"Visit Site", sponsor.website, class: "btn btn-primary" %>
+          <% if user_signed_in? %>
+            <br>
+            <%= link_to "Show this sponsor", sponsor, class:"btn border-bottom" %>
+          <% end %>
+        </div>
+      </div>
+      </div>
     <p>
-      <%= link_to "Show this sponsor", sponsor %>
     </p>
   <% end %>
+  </div>
+  </div>
 </div>
-
-<%= link_to "New sponsor", new_sponsor_path %>

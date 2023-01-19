@@ -10,6 +10,8 @@ gem "devise", "~> 4.8"
 
 gem "simple_calendar", "~> 2.4"
 
+gem "image_processing", ">= 1.2"
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
 
