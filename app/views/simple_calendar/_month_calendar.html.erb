@@ -1,4 +1,31 @@
 <div class="simple-calendar">
+
+<h2 class="p-3"> Featured Events </h2>
+<div class="row p-3">
+<% @events.limit(5).each do |event| %>
+
+  <% if event.featured == true %>
+    <div class="col-3">
+
+
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+        <h5 class="card-title"><%= event.title %></h5>
+        <p class="card-text">Event Start: <%= event.eventstart.strftime('%b %d, %Y') %></p>
+        <p class="card-text">Event End:  <%= event.eventend.strftime('%b %d, %Y') %></p>
+        <p class="card-text"><%= event.details %></p>
+        <%= link_to "Show this event", event, class:"btn btn-primary mb-3" %>
+        </div>
+      </div>
+
+
+    </div>
+  <% end %>
+
+<% end %>
+</div>
+
   <div class="calendar-heading fw-bold fs-3 p-3">
     <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view, class:"btn border border-secondary border-bottom"%>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>

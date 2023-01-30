@@ -1,10 +1,10 @@
 
-<h1 class="text-center p-3">Albums</h1>
+<h1 class="text-center p-3 mb-0">Albums</h1>
 
 <div id="albums">
   <% @albums.each do |album| %>
     <%= render album %>
-    <p>
+    <p class="mb-0">
       <%= link_to "Show this album", album, event, class:"btn btn-primary mb-3" %>
     </p>
   <% end %>

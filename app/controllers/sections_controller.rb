@@ -1,5 +1,6 @@
 class SectionsController < ApplicationController
   before_action :set_section, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
 
   # GET /sections or /sections.json
   def index

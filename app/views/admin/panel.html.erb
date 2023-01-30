@@ -1,19 +1,21 @@
 <h1 class="p-3">Admin Panel</h1>
 
-<div class="row">
-    <hr>
-    <h2>Sections</h2>
-</div>
-<div class="row">
-    <div class="col-3">
-        <%= link_to"Create New Section", new_section_path, class:"btn btn-primary" %>
-    </div>
 
-    <div class="col-3">
-        <%= link_to"Show All Created Sections", sections_path, class:"btn btn-secondary" %>
+<% if current_user.role == "Developer" %>
+    <div class="row">
+        <hr>
+        <h2>Sections</h2>
     </div>
-</div>
+    <div class="row">
+        <div class="col-3">
+            <%= link_to"Create New Section", new_section_path, class:"btn btn-primary" %>
+        </div>
 
+        <div class="col-3">
+            <%= link_to"Show All Created Sections", sections_path, class:"btn btn-secondary" %>
+        </div>
+    </div>
+<% end %>
 
 <div class="row">
     <hr class="mt-3">

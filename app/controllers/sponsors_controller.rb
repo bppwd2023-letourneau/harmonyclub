@@ -1,5 +1,6 @@
 class SponsorsController < ApplicationController
   before_action :set_sponsor, only: %i[ show edit update destroy ]
+  before_action :authenticate_user!, :only => [:new, :edit, :create, :update, :destroy]
 
   # GET /sponsors or /sponsors.json
   def index

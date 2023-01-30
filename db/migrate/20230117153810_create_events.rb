@@ -6,6 +6,7 @@ class CreateEvents < ActiveRecord::Migration[7.0]
       t.datetime :eventstart
       t.datetime :eventend
       t.integer :occurence
+      t.boolean :featured
       t.text :details
 
       t.timestamps
