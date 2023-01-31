@@ -1,11 +1,21 @@
+<h1 class="text-center p-3">Photo Albums</h1>
 
-<h1 class="text-center p-3 mb-0">Albums</h1>
-
-<div id="albums">
+<div class="row">
   <% @albums.each do |album| %>
-    <%= render album %>
-    <p class="mb-0">
-      <%= link_to "Show this album", album, event, class:"btn btn-primary mb-3" %>
-    </p>
+
+    <div class="col-lg-4 d-flex justify-content-center">
+      <div class="card text-center mb-3" style="width: 18rem; height: 13rem;">
+        <div class="card-body">
+          <h5 class="card-title"><%= album.title %></h5>
+          <h5 class="card-title">Description: <%= album.description %></h5>
+          <% if user_signed_in? %>
+            <br>
+            <%= link_to "Show this Album", album, class:"btn btn-primary mt-2" %>
+          <% end %>
+        </div>
+      </div>
+      </div>
   <% end %>
+  </div>
+  </div>
 </div>

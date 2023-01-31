@@ -1,11 +1,24 @@
 
 <h1 class="text-center p-3">Events</h1>
 
-<div id="events">
+<div class="row">
   <% @events.each do |event| %>
-    <%= render event %>
-    <p class="mb-0">
-      <%= link_to "Show this event", event, class:"btn btn-primary mb-3" %>
-    </p>
+
+    <div class="col-lg-4 d-flex justify-content-center">
+      <div class="card text-center mb-3" style="width: 18rem; height: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">Title: <%= event.title %></h5>
+          <h5 class="card-title">Start: <%= event.eventstart.strftime('%b %d, %Y') %></h5>
+          <h5 class="card-title">End: <%= event.eventend.strftime('%b %d, %Y') %></h5>
+          <h5 class="card-title">Details: <%= event.details %></h5>
+          <% if user_signed_in? %>
+            <br>
+            <%= link_to "Show this Event", event, class:"btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+      </div>
   <% end %>
+  </div>
+  </div>
 </div>

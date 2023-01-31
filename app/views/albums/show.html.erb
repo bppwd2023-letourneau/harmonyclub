@@ -1,10 +1,18 @@
-<p style="color: green"><%= notice %></p>
+<h2 class="text-center"><%= @album.title %></h2>
+  <div class="row mt-3">
+    <% @album.photos.each do |photo| %>
+      <div class="col-4 d-flex justify-content-center">
+        <%= image_tag(photo.image, size: "285x200") %>
+      </div>
+    <% end %>
+  </div>
 
-<%= render @album %>
+<% if user_signed_in? %>
+<div class="text-center mt-3">
+  <%= link_to "Edit this album", edit_album_path(@album), class:"btn btn-warning mb-3" %>
 
-<div>
-  <%= link_to "Edit this album", edit_album_path(@album) %> |
-  <%= link_to "Back to albums", albums_path %>
+  <%= button_to "Destroy this album", @album, method: :delete, class:"btn btn-danger mb-3" %>
 
-  <%= button_to "Destroy this album", @album, method: :delete %>
+  <%= link_to "Back to albums", albums_path, class:"btn btn-primary mb-3" %>
 </div>
+<% end %>

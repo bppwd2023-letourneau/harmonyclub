@@ -14,6 +14,7 @@ class PhotosController < ApplicationController
   # GET /photos/new
   def new
     @photo = Photo.new
+    @albums = Album.all
   end
 
   # GET /photos/1/edit
@@ -66,6 +67,6 @@ class PhotosController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def photo_params
-      params.require(:photo).permit(:album_id, :title, :description)
+      params.require(:photo).permit(:album_id, :title, :image, :description)
     end
 end

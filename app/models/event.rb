@@ -1,7 +1,17 @@
 class Event < ApplicationRecord
     has_one_attached :photo
     validates :title, :eventstart, :eventend, presence: true
+    
+    validate :has_four
 
+
+
+    def has_four
+        @events = Event.where(featured: true)
+        if self.featured == true && @events.length() >= 4
+            self.errors.add(:featured, "already has four featured events")
+        end
+    end
 
     def start_time
         self.eventstart ##Where 'start' is a attribute of type 'Date' accessible through MyModel's relationship

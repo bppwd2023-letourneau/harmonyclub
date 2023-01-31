@@ -1,12 +1,25 @@
 <h1 class="text-center p-3">Pages</h1>
 
-<div id="pages">
+<div class="row">
   <% @pages.each do |page| %>
-    <%= render page %>
-    <p class="mb-0">
-      <%= link_to "Show this page", page %>
-    </p>
-  <% end %>
-</div>
 
-<%= link_to "New page", new_page_path %>
+    <div class="col-lg-4 d-flex justify-content-center">
+      <div class="card text-center mb-3" style="width: 18rem; height: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">Title: <%= page.title %></h5>
+          <h5 class="card-title">Section: <%= page.section.title %></h5>
+          <h5 class="card-title">Position: <%= page.position %></h5>
+          <h5 class="card-title">Page Type: <%= page.page_type %></h5>
+          <h5 class="card-title">Destination: <%= page.destination %></h5>
+          <h5 class="card-title">Visible: <%= page.visible %></h5>
+          <% if user_signed_in? %>
+            <br>
+            <%= link_to "Show this Page", page, class:"btn btn-primary" %>
+          <% end %>
+        </div>
+      </div>
+      </div>
+  <% end %>
+  </div>
+  </div>
+</div>

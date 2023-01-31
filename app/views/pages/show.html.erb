@@ -8,9 +8,9 @@
 
 <% if user_signed_in? %>
 <div class="mb-0">
-  <%= link_to "Edit this event", edit_page_path(@page), class:"btn btn-warning mb-3" %>
+  <%= link_to "Edit this Page", edit_page_path(@page), class:"btn btn-warning mb-3" %>
 
-  <%= button_to "Destroy this event", @page, method: :delete, class:"btn btn-danger mb-3" %>
+  <%= button_to "Destroy this Page", @page, method: :delete, class:"btn btn-danger mb-3" %>
   
   <%= link_to "Back to pages", pages_path, class:"btn btn-primary mb-3" %>
 </div>
