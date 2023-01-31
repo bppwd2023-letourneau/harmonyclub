@@ -39,9 +39,8 @@
             Menu
           </div>
 
-            <% if Section.all != nil %>
-              <% Section.all.each do |s| %>
-                <% if s.location == "Main Navigation" && s.visible == true %>
+              <% Section.where(location: "Main Navigation").each do |s| %>
+                <% if s.visible == true %>
                   <ul class="dropdown-menu text-center">
                   <li>
                       <a class="dropdown-item border-bottom" href="#">
@@ -49,20 +48,15 @@
                       </a>
                       <ul class="dropdown-menu dropdown-submenu">
 
-                  <% if Page.all != nil %>
-                    <% Page.all.each do |p| %>
-                      <% if p.section_id == s.id %>
+                    <% s.pages.each do |p| %>
                         <li>
                           <a> <%= link_to p.title, p, class:"btn w-100 border-bottom" %></a>
                         </li>
                       <% end %>
-                    <% end %>
-                  <% end %>
                   </ul>
                   </li>
                 <% end %>
               <% end %>
-            <% end %>
 
             <li>
             <a class=dropdown-item" href="#"> <%= link_to "Calendar", web_events_calendar_path, class: "btn w-100 border-bottom" %> </a>

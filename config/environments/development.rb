@@ -2,7 +2,7 @@ require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
 
-    config.hosts << "carpetambient-simplealex-3000.codio.io"
+    config.hosts << "panicrobin-swingpassage-3000.codio.io"
 
     config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
     
