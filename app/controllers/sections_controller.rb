@@ -14,6 +14,7 @@ class SectionsController < ApplicationController
   # GET /sections/new
   def new
     @section = Section.new
+    authorize @section, :new?
   end
 
   # GET /sections/1/edit

@@ -39,9 +39,11 @@
             Menu
           </div>
 
+
+            <ul class="dropdown-menu text-center">
               <% Section.where(location: "Main Navigation").each do |s| %>
-                <% if s.visible == true %>
-                  <ul class="dropdown-menu text-center">
+               <% if s.visible == true %>
+                  
                   <li>
                       <a class="dropdown-item border-bottom" href="#">
                       <%=s.title %> &raquo;
@@ -50,7 +52,21 @@
 
                     <% s.pages.each do |p| %>
                         <li>
-                          <a> <%= link_to p.title, p, class:"btn w-100 border-bottom" %></a>
+                          <% if p.page_type == "External URL" %>
+                            <%= link_to p.title, p.destination, class: "btn w-100 border-bottom", target: :_blank %>
+                          <% end %>
+
+                          <% if p.page_type == "Basic Page" %>
+                            <a> <%= link_to p.title, p, class:"btn w-100 border-bottom" %></a>
+                          <% end %>
+
+                          <% if p.page_type == "PDF" %>
+                            <a> <%= link_to p.title, p, class:"btn w-100 border-bottom" %></a>
+                          <% end %>
+
+                          <% if p.page_type == "Internal URL" %>
+                            <a> <%= link_to p.title, p.destination, class:"btn w-100 border-bottom" %></a>
+                          <% end %>
                         </li>
                       <% end %>
                   </ul>

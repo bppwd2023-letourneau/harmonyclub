@@ -3,7 +3,6 @@ class AdminController < ApplicationController
   
   def panel
     puts "-------------------"
-    puts current_user.role
     puts "-------------------"
   end
 end

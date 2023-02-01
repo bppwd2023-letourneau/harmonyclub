@@ -13,44 +13,65 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+
+  <div data-controller="page">
+
+    <div>
+      <%= form.label :page_type, style: "display: block" %>
+      <%= form.select :page_type,
+                      ['Basic Page', 'Internal URL', 'External URL', 'PDF'],
+                      {},
+                      data: {
+                        action: "change->page#toggle",
+                        "page_target": "input"
+                      }
+      %>
+
+    </div>
+
+
+    <div>
+      <%= form.label :title, style: "display: block" %>
+      <%= form.text_field :title %>
+    </div>
+
+    <div>
+      <%= form.label :section_id, style: "display: block" %>
+      <%= form.collection_select :section_id, @sections, :id, :title, prompt: "Select Section" %>
+    </div>
+
+    <div>
+      <%= form.label :position, style: "display: block" %>
+      <%= form.number_field :position %>
+    </div>
+
+    <div>
+      <%= form.label :visible, style: "display: block" %>
+      <%= form.check_box :visible %>
+    </div>
+
+    <div data-page-target="url">
+      <%= form.label :destination, style: "display: block" %>
+      <%= form.text_field :destination %>
+    </div>
+
+    <div data-page-target="pdf">
+      <%= form.label :doc, style: "display: block" %>
+      <%= form.file_field :doc, class:" ms-5 mb-3" %>
+    </div>
+    
+    <div data-page-target="basicPage">
+      <%= form.label :content, style: "display: block" %>
+      <%= form.text_area :content %>
+    </div>
+
   </div>
 
-  <div>
-    <%= form.label :section_id, style: "display: block" %>
-    <%= form.collection_select :section_id, @sections, :id, :title, prompt: "Select Section" %>
-  </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
 
-  <div>
-    <%= form.label :position, style: "display: block" %>
-    <%= form.number_field :position %>
-  </div>
-
-  <div>
-    <%= form.label :page_type, style: "display: block" %>
-    <%= form.text_field :page_type %>
-  </div>
-
-  <div>
-    <%= form.label :destination, style: "display: block" %>
-    <%= form.text_field :destination %>
-  </div>
-
-  <div>
-    <%= form.label :visible, style: "display: block" %>
-    <%= form.check_box :visible %>
-  </div>
-
-  <div>
-    <%= form.label :content, style: "display: block" %>
-    <%= form.text_area :content %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+  
 
 </div>

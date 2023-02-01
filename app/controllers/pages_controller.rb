@@ -19,6 +19,7 @@ class PagesController < ApplicationController
 
   # GET /pages/1/edit
   def edit
+    @sections = Section.all
   end
 
   # POST /pages or /pages.json
@@ -67,6 +68,6 @@ class PagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def page_params
-      params.require(:page).permit(:title, :section_id, :position, :page_type, :destination, :visible, :content)
+      params.require(:page).permit(:title, :section_id, :position, :page_type, :destination, :visible, :content, :doc)
     end
 end
