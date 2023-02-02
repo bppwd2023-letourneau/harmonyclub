@@ -17,7 +17,10 @@
     <% @events.each do |e| %>
         <% if e.eventstart > DateTime.now && e.eventstart < DateTime.now + 30.days %>
             <%= e.title%>
-            <%= e.eventstart.strftime('- %b %d, %Y - %I:%M %p') %>
+            <br>
+            <%= e.eventstart.strftime('%b %d, %Y - %I:%M %p') %>
+            <br>
+            <hr>
         <% end %>
     <% end %>
 

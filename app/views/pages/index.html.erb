@@ -4,7 +4,7 @@
   <% @pages.each do |page| %>
 
     <div class="col-lg-4 d-flex justify-content-center">
-      <div class="card text-center mb-3" style="width: 18rem; height: 20rem;">
+      <div class="card text-center mb-3" style="width: 18rem; height: 24rem;">
         <div class="card-body">
           <h5 class="card-title">Title: <%= page.title %></h5>
           <h5 class="card-title">Section: <%= page.section.title %></h5>
@@ -14,7 +14,7 @@
           <h5 class="card-title">Visible: <%= page.visible %></h5>
           <% if user_signed_in? %>
             <br>
-            <%= link_to "Show this Page", page, class:"btn btn-primary" %>
+            <%= link_to "Show this Page", page, class:"btn btn-primary " %>
           <% end %>
         </div>
       </div>

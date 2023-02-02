@@ -1,12 +1,13 @@
 <div class="text-center">
-<h2><%= @page.title %></h2>
+<h1 class="p-3"><%= @page.title %></h1>
 
-<p class="mb-0"> <%= @page.content %> </p>
+<p class="mb-0 p-1"> <%= @page.content.html_safe %> </p>
 
 <% if @page.doc.attached? %>
     <%= @page.doc %>
 <% end %>
 
+<hr>
 <div>
     <%= link_to "Edit this page", edit_page_path(@page), class: "btn btn-warning mt-2" %>
 

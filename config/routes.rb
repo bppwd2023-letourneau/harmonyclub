@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   namespace :web do
+    get 'photos/index'
+    get 'photos/show'
     get 'events/calendar'
   end
   get 'admin/panel'

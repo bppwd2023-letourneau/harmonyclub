@@ -202,6 +202,11 @@ fill-range@^7.0.1:
   dependencies:
     to-regex-range "^5.0.1"
 
+froala-editor@^4.0.17:
+  version "4.0.17"
+  resolved "https://registry.npmjs.org/froala-editor/-/froala-editor-4.0.17.tgz"
+  integrity sha512-JJTOhoLC9zfJ/0WYJ+zS3p0F2wm6p3JONV1JUwo+NSOKYgpK5gr2/GA0qn7WUuAkV+j3JGcSalOT8StiV2ZJ8w==
+
 fsevents@~2.3.2:
   version "2.3.2"
   resolved "https://registry.yarnpkg.com/fsevents/-/fsevents-2.3.2.tgz#8a526f78b8fdf4623b709e0b975c52c24c02fd1a"

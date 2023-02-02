@@ -9,6 +9,14 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= stylesheet_link_tag "custom.css" %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
+    <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+<script>
+  tinymce.init({
+    selector: '.tinymce',
+    plugins: 'lists link image table code help wordcount'
+  });
+</script>
+
     
   </head>
 
@@ -83,7 +91,7 @@
             </li>
 
             <li>
-            <a class=dropdown-item" href="#"> <%= link_to "Gallery", albums_path, class: "btn w-100 border-bottom" %> </a>
+            <a class=dropdown-item" href="#"> <%= link_to "Gallery", web_photos_index_path, class: "btn w-100 border-bottom" %> </a>
             </li>
             
   
@@ -107,7 +115,7 @@
   
 </nav>
 
-  <div class="container bg bg-light mb-0">
+  <div class="container bg bg-light mb-0" id="pagecon">
     <%= yield %>
   </div>
 
@@ -117,17 +125,47 @@
         <%= link_to"HARMONY CLUB OF WORCESTER | 2023", home_home_path, class:"btn fw-bold text-light mb-0" %>
     </div>
 
-    <div class="row">
 
-      <% if Section.all != nil %>
-        <% Section.all.each do |s| %>
-          <% if s.location == "Footer" %>
-            <li><a class="dropdown-item" href="#"><%= s.title %></a></li>
-          <% end %>
-        <% end %>
-      <% end %>
+<div class="row">
 
-    </div>
+                    <% Section.where(location: "Footer").each do |s| %>
+                    <% if s.visible == true %>
+                    <div class="col-3">
+
+                        <h5><%= s.title %></h5>
+                          <% s.pages.each do |p| %>
+
+                                <% if p.page_type == "External URL" %>
+                                  <%= link_to p.title, p.destination, class: "btn w-100 text-light", target: :_blank %>
+                                <% end %>
+
+                                <% if p.page_type == "Basic Page" %>
+                                  <a> <%= link_to p.title, p, class:"btn w-100 text-light" %></a>
+                                <% end %>
+
+                                <% if p.page_type == "PDF" %>
+                                  <a> <%= link_to p.title, p, class:"btn w-100 text-light" %></a>
+                                <% end %>
+
+                                <% if p.page_type == "Internal URL" %>
+                                  <a> <%= link_to p.title, p.destination, class:"btn w-100 text-light" %></a>
+                                <% end %>
+
+                            <% end %>
+                    </div>
+                      <% end %>
+                    <% end %>        
+        
+                  </li>
+
+  </div>
+
+  <div class="col-5">
+
+  </div>
+
+
+</div>
   
   </div>
 

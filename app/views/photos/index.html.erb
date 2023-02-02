@@ -7,8 +7,8 @@
       <div class="card text-center mb-3" style="width: 18rem; height: 24rem;">
         <div class="card-body">
           <h5 class="card-title">Title: <%= photo.title %></h5>
-          <h5 class="card-title">Position: <%= photo.album.title %></h5>
-          <h5 class="card-title">Location: <%= photo.description %></h5>
+          <h5 class="card-title">Album: <%= photo.album.title %></h5>
+          <h5 class="card-title">Description: <%= photo.description %></h5>
           <%= image_tag(photo.image, size: "250x180") %>
           <% if user_signed_in? %>
             <br>
