@@ -49,7 +49,7 @@
 
 
             <ul class="dropdown-menu text-center">
-              <% Section.where(location: "Main Navigation").each do |s| %>
+              <% Section.where(location: ["Main Navigation", "Both"]).each do |s| %>
                <% if s.visible == true %>
                   
                   <li>
@@ -57,6 +57,7 @@
                       <%=s.title %> &raquo;
                       </a>
                       <ul class="dropdown-menu dropdown-submenu">
+
 
                     <% s.pages.each do |p| %>
                         <li>
@@ -81,6 +82,8 @@
                   </li>
                 <% end %>
               <% end %>
+              
+              
 
             <li>
             <a class=dropdown-item" href="#"> <%= link_to "Calendar", web_events_calendar_path, class: "btn w-100 border-bottom" %> </a>
@@ -128,7 +131,7 @@
 
 <div class="row">
 
-                    <% Section.where(location: "Footer").each do |s| %>
+                    <% Section.where(location: ["Footer", "Both"]).each do |s| %>
                     <% if s.visible == true %>
                     <div class="col-3">
 
